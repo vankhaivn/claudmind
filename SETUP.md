@@ -2,49 +2,47 @@
 
 This file is a protocol for an AI coding agent (Claude Code or Codex) running on the owner's machine. Follow it from top to bottom to install, upgrade, review, or remove claudmind for the current operating-system user.
 
-> **Read freely, write only what is approved.** Present a plan that names every path and setting you will create or change, wait for explicit approval, then apply exactly that plan. Back up every existing file before changing it. Never print secret values.
+> **Read freely, write only what is approved.** Present a plan that names every path you will create or change, wait for explicit approval, then apply exactly that plan. Back up every existing file before changing it. Never print secret values.
 
 ## What gets installed
 
-| Path or setting                       | Role                                               | On upgrade    |
-| ------------------------------------- | -------------------------------------------------- | ------------- |
-| `~/.claudmind/engine.md`              | Rules for recording and using the profile          | Replaced      |
-| `~/.claudmind/OWNER.md`               | The owner's profile                                | Never touched |
-| `~/.claudmind/MACHINE.md`             | Facts about this machine                           | Never touched |
-| Marked block in `~/.claude/CLAUDE.md` | Loads the three files in every Claude Code session | Verified      |
-| Marked block in `~/.codex/AGENTS.md`  | Tells Codex to read the three files before work    | Verified      |
-| Write access to `~/.claudmind/`       | Lets agents update the profile from any project    | Verified      |
+| Path                                  | Role                                               | When it already exists   |
+| ------------------------------------- | -------------------------------------------------- | ------------------------ |
+| `~/.claudmind/engine.md`              | Rules for recording and using the profile          | Replaced when it differs |
+| `~/.claudmind/OWNER.md`               | The owner's profile                                | Never overwritten        |
+| `~/.claudmind/MACHINE.md`             | Facts about this machine                           | Never overwritten        |
+| Marked block in `~/.claude/CLAUDE.md` | Loads the three files in every Claude Code session | Replaced when it differs |
+| Marked block in `~/.codex/AGENTS.md`  | Tells Codex to read the three files before work    | Replaced when it differs |
 
-claudmind adds no command, skill, hook, service, or background process.
+claudmind adds no command, skill, hook, service, or background process, and it changes no permission or setting. The first time an agent writes to the profile, the runtime may ask the owner to approve the write.
 
 ## Step 1 — Inspect (read-only)
 
 1. Detect the runtimes: Claude Code when `~/.claude/` exists, Codex when `~/.codex/` exists. Cover every detected runtime unless the owner selects one.
-2. Read `~/.claudmind/` if it exists, the global instruction files `~/.claude/CLAUDE.md` and `~/.codex/AGENTS.md`, the `permissions` object in `~/.claude/settings.json`, and the `[sandbox_workspace_write]` table in `~/.codex/config.toml`. Report only what matters for this setup. Never print credentials, tokens, or other secret values.
+2. Read `~/.claudmind/` if it exists and the global instruction files `~/.claude/CLAUDE.md` and `~/.codex/AGENTS.md`. Report only what matters for this setup.
 3. Use this repository as the source of truth for `engine.md`, the templates, and the marked blocks below: a local checkout the owner names, or a fresh clone in a temporary directory.
 
 ## Step 2 — Choose the mode
 
-- **Install:** `~/.claudmind/` does not exist.
-- **Upgrade:** `~/.claudmind/` exists. Compare the version in the first line of the installed `engine.md` with the repository's copy.
 - **Review:** the owner asks to review or rebuild the profile. Follow "Review On Request" in `engine.md` and stop.
 - **Uninstall:** the owner asks to remove claudmind. Go to [Uninstall](#uninstall).
+- **Install or upgrade:** any other request. Both follow the steps below, and the current state of each file decides what changes.
 
 ## Step 3 — Present the plan and wait
 
 List every write:
 
-- files created under `~/.claudmind/`: all three on install, `engine.md` only on upgrade;
-- each global instruction file that gains the marked block, with its backup path `<file>.claudmind-backup-YYYYMMDD`;
-- each permission change, with the exact key and value;
+- `~/.claudmind/engine.md`: created, or replaced when it differs from this repository's copy;
+- `~/.claudmind/OWNER.md` and `~/.claudmind/MACHINE.md`: created from the templates only when missing;
+- each global instruction file that gains the marked block or has one that differs, with its backup path `<file>.claudmind-backup-YYYYMMDD`;
 - whether to bootstrap the profile from existing memory ([Step 5](#step-5--bootstrap-the-profile-optional)), which the owner may decline.
 
 Wait for explicit approval. Approving this plan does not approve later, unplanned writes; present an amended plan instead.
 
 ## Step 4 — Apply
 
-1. Create `~/.claudmind/` and copy `engine.md` into it. Copy `templates/OWNER.md` and `templates/MACHINE.md` into it only when they are missing.
-2. **Claude Code.** Add this block once to the end of `~/.claude/CLAUDE.md`, creating the file if needed and keeping all existing content:
+1. Create `~/.claudmind/` if needed. Copy `engine.md` into it when it is missing or differs. Copy `templates/OWNER.md` and `templates/MACHINE.md` into it only when they are missing; never overwrite an existing profile.
+2. **Claude Code.** Add this block to the end of `~/.claude/CLAUDE.md`, creating the file if needed and keeping all existing content. If the block is already there, replace it only when it differs:
 
    ```markdown
    <!-- claudmind:begin -->
@@ -56,7 +54,7 @@ Wait for explicit approval. Approving this plan does not approve later, unplanne
    <!-- claudmind:end -->
    ```
 
-3. **Codex.** Add this block once to the end of `~/.codex/AGENTS.md`, creating the file if needed and keeping all existing content:
+3. **Codex.** Add this block to `~/.codex/AGENTS.md` the same way:
 
    ```markdown
    <!-- claudmind:begin -->
@@ -68,36 +66,21 @@ Wait for explicit approval. Approving this plan does not approve later, unplanne
    <!-- claudmind:end -->
    ```
 
-4. **Write access.** Use the absolute path of `~/.claudmind`, merge with existing values, and never remove or reorder unrelated entries:
-   - Claude Code: in `~/.claude/settings.json`, add the path to `permissions.additionalDirectories` and add `Edit(~/.claudmind/**)` to `permissions.allow`.
-   - Codex: in `~/.codex/config.toml`, add the path to `writable_roots` under `[sandbox_workspace_write]`.
-
-   If a runtime still asks before the first write to the profile, the owner can approve it in that prompt.
-
 ## Step 5 — Bootstrap the profile (optional)
 
-Run this step only when the approved plan includes it.
-
-1. Read runtime-native memory:
-   - Claude Code: `~/.claude/projects/*/memory/*.md`, focusing on entries typed `user` or `feedback`.
-   - Codex: `~/.codex/memories/memory_summary.md`, focusing on the user profile and preferences.
-   - Personal rules that both global instruction files repeat.
-2. Keep only lessons that hold across projects. Merge a lesson found in several projects into one entry. Drop anything project-specific, stale, contradicted, or containing secrets, account identifiers, or personal data about other people.
-3. Show the drafted `OWNER.md` and `MACHINE.md` entries, each with its date and the store it came from. Write only the entries the owner approves.
-4. Leave runtime-native memory unchanged. Tell the owner that it can stay on: the engine claims only lessons that hold across projects, and turning native memory off would also lose its automatic notes and future improvements.
+Run this step only when the approved plan includes it: follow "Review On Request" in `engine.md`.
 
 ## Step 6 — Verify
 
-1. `~/.claudmind/` holds `engine.md`, `OWNER.md`, and `MACHINE.md`. On upgrade, `OWNER.md` and `MACHINE.md` are byte-identical to their state before the upgrade.
-2. Each changed global instruction file contains exactly one marked block and has a backup.
-3. Every changed settings file still parses as valid JSON or TOML, and the permission entries are present.
-4. Ask the owner to open a new session in any project and ask: "What does claudmind say about me?" The answer should come from `OWNER.md`.
+1. `~/.claudmind/` holds `engine.md`, `OWNER.md`, and `MACHINE.md`. A profile that existed before is unchanged, except for entries the owner approved in Step 5.
+2. Each changed global instruction file contains exactly one marked block, and a file that existed before has a backup.
+3. For each selected runtime, ask the owner to open a new session in any project and ask: "Which claudmind files did you load, and what are their section headings?" The answer should name all three files with their real headings, even while the profile is still empty.
 
 ## Step 7 — Report
 
-List the paths created, changed, and backed up; the permission changes; the bootstrap entries written; and anything skipped, with the reason.
+List the paths created, changed, and backed up; the bootstrap entries written; and anything skipped, with the reason.
 
 ## Uninstall
 
-1. Present the plan: remove both marked blocks and the permission entries claudmind added. Keep `~/.claudmind/` unless the owner asks to delete it.
+1. Present the plan: remove both marked blocks. Keep `~/.claudmind/` unless the owner asks to delete it.
 2. After approval, back up each file, apply the removal, verify that no marked block remains, and report.

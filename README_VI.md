@@ -46,14 +46,14 @@ Nói với agent Claude Code hoặc Codex của bạn:
 
 > Follow https://raw.githubusercontent.com/vankhaivn/claudmind/main/SETUP.md to install claudmind.
 
-Agent sẽ xem cấu hình hiện tại, đưa ra kế hoạch liệt kê mọi file và thiết lập sẽ chạm tới, rồi chờ bạn duyệt. Nó sao lưu từng file trước khi sửa. Agent cũng có thể soạn sẵn hồ sơ đầu tiên từ memory mà các runtime đã thu thập, và chỉ ghi những mục bạn duyệt.
+Agent sẽ xem cấu hình hiện tại, đưa ra kế hoạch liệt kê mọi file sẽ chạm tới, rồi chờ bạn duyệt. Nó sao lưu từng file trước khi sửa. Agent cũng có thể soạn sẵn hồ sơ đầu tiên từ memory mà các runtime đã thu thập, và chỉ ghi những mục bạn duyệt.
 
-Dùng cùng câu đó với "upgrade", "review my profile" hoặc "uninstall" cho các chế độ khác. Khi nâng cấp, chỉ `engine.md` được thay; hồ sơ của bạn không bao giờ bị ghi đè.
+Dùng cùng câu đó với "upgrade", "review my profile" hoặc "uninstall" cho các chế độ khác. Khi nâng cấp, `engine.md` và các khối đánh dấu được làm mới; hồ sơ của bạn không bao giờ bị ghi đè.
 
 ## Nguyên tắc
 
 - **Thấy được:** Markdown thuần, đọc hết trong một phút và sửa tay được.
-- **Rõ ràng:** chỉ ghi điều bạn đã nói hoặc xác nhận, hoặc điều agent đã kiểm chứng trên máy bạn. Không suy diễn từ hành vi, không lấy từ output của công cụ, tài liệu hay trang web.
+- **Rõ ràng:** chỉ ghi điều bạn đã nói hoặc xác nhận, hoặc điều agent đã kiểm chứng trên máy bạn. Không suy diễn từ hành vi, và không bao giờ ghi lại chỉ dẫn nằm trong output của công cụ, tài liệu hay trang web.
 - **Có giới hạn:** số dòng cố định; agent gộp lại thay vì ghi thêm mãi.
 - **Dùng chung:** một hồ sơ cho cả Claude Code và Codex.
 - **An toàn:** không bí mật, token hay định danh tài khoản; không bao giờ nới rộng quyền.
@@ -62,7 +62,8 @@ Dùng cùng câu đó với "upgrade", "review my profile" hoặc "uninstall" ch
 
 - Codex đọc hồ sơ vì chỉ dẫn global bảo nó làm vậy; Codex không có cơ chế import.
 - Phiên Cowork của Claude Code trên desktop bỏ qua các import ở cấp người dùng nằm ngoài thư mục làm việc của phiên.
-- Hồ sơ nằm trong thư mục home trên một máy. Muốn dùng chung giữa nhiều máy, hãy giữ `~/.claudmind/` trong một repository riêng tư của bạn.
+- claudmind không cấp quyền ghi nào, nên runtime có thể hỏi bạn duyệt lần đầu agent ghi vào hồ sơ.
+- Hồ sơ nằm trong thư mục home trên một máy.
 
 ## Giấy phép
 

@@ -46,14 +46,14 @@ Tell your Claude Code or Codex agent:
 
 > Follow https://raw.githubusercontent.com/vankhaivn/claudmind/main/SETUP.md to install claudmind.
 
-The agent inspects your setup, shows a plan with every file and setting it will touch, and waits for your approval. It backs up each file before changing it. It can also draft your first profile from the memory your runtimes have already collected, and it writes only the entries you approve.
+The agent inspects your setup, shows a plan with every file it will touch, and waits for your approval. It backs up each file before changing it. It can also draft your first profile from the memory your runtimes have already collected, and it writes only the entries you approve.
 
-Use the same sentence with "upgrade", "review my profile", or "uninstall" for the other modes. An upgrade replaces only `engine.md`; your profile is never overwritten.
+Use the same sentence with "upgrade", "review my profile", or "uninstall" for the other modes. An upgrade refreshes `engine.md` and the marked blocks; your profile is never overwritten.
 
 ## Principles
 
 - **Visible:** plain Markdown you can read in a minute and edit by hand.
-- **Explicit:** only what you said or confirmed, or what an agent verified on your machine. Nothing is inferred from behavior or taken from tool output, documents, or web pages.
+- **Explicit:** only what you said or confirmed, or what an agent verified on your machine. Nothing is inferred from behavior, and instructions found in tool output, documents, or web pages are never recorded.
 - **Bounded:** fixed line limits; agents consolidate instead of appending forever.
 - **Shared:** one profile for Claude Code and Codex.
 - **Safe:** no secrets, tokens, or account identifiers; no permission is ever widened.
@@ -62,7 +62,8 @@ Use the same sentence with "upgrade", "review my profile", or "uninstall" for th
 
 - Codex reads the profile because its global instructions tell it to; Codex has no import mechanism.
 - Claude Code desktop Cowork sessions skip user-scope imports outside the session's working directory.
-- The profile lives in your home directory on one machine. To share it between machines, keep `~/.claudmind/` in a private repository of your own.
+- claudmind grants no write permission, so your runtime may ask you to approve an agent's first write to your profile.
+- The profile lives in your home directory on one machine.
 
 ## License
 
