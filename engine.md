@@ -50,6 +50,6 @@ Record only what the owner said or confirmed, or what you verified on this machi
 
 When the owner asks to review or rebuild the profile:
 
-1. Read both files here and runtime-native memory: Claude Code keeps it in `~/.claude/projects/*/memory/`, where entries typed `user` or `feedback` are the likely candidates, and Codex keeps it in `~/.codex/memories/`.
+1. Read both files here and runtime-native memory: Claude Code keeps it in `~/.claude/projects/*/memory/`, where entries typed `user` or `feedback` are the likely candidates, and Codex keeps it in `~/.codex/memories/` or `~/.codex/memories_v2/`, where the "User preferences" sections are the likely candidates.
 2. Propose additions, merges, and removals for lessons that hold across projects, naming the memory store behind each addition. Leave project-specific lessons where they are.
 3. Write only what the owner approves. Never modify or delete runtime-native memory.

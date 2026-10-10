@@ -61,6 +61,7 @@ Use the same sentence with "upgrade", "review my profile", or "uninstall" for th
 ## Known limits
 
 - Codex reads the profile because its global instructions tell it to; Codex has no import mechanism.
+- Codex can generate memories in the background (`generate_memories` in `~/.codex/config.toml`) and infers those preferences without a correction, so claudmind never sees them at save time. Ask for a profile review now and then, or turn that setting off.
 - Claude Code desktop Cowork sessions skip user-scope imports outside the session's working directory.
 - claudmind grants no write permission, so your runtime may ask you to approve an agent's first write to your profile.
 - The profile lives in your home directory on one machine.
