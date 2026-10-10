@@ -61,6 +61,7 @@ Dùng cùng câu đó với "upgrade", "review my profile" hoặc "uninstall" ch
 ## Giới hạn đã biết
 
 - Codex đọc hồ sơ vì chỉ dẫn global bảo nó làm vậy; Codex không có cơ chế import.
+- Codex có thể tự tạo memory ở chế độ nền (`generate_memories` trong `~/.codex/config.toml`) và suy ra các sở thích đó mà không cần bạn sửa nó, nên claudmind không bao giờ thấy chúng lúc lưu. Thỉnh thoảng hãy yêu cầu review hồ sơ, hoặc tắt thiết lập đó.
 - Phiên Cowork của Claude Code trên desktop bỏ qua các import ở cấp người dùng nằm ngoài thư mục làm việc của phiên.
 - claudmind không cấp quyền ghi nào, nên runtime có thể hỏi bạn duyệt lần đầu agent ghi vào hồ sơ.
 - Hồ sơ nằm trong thư mục home trên một máy.
