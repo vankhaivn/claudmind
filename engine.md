@@ -26,7 +26,7 @@ Only what holds across projects:
 
 A lesson that holds across projects belongs here even when the current project keeps its own owner profile, such as `.claudart/OWNER.md`. Record it here only, not in both places.
 
-A lesson that holds only in the current project belongs to that project. In a CLAUDART project, how the owner works there goes to `.claudart/OWNER.md`, code-area conventions go to rules, and project facts go to knowledge. Elsewhere, ask the owner whether to record it in the project's own instructions. When it is unclear whether a lesson holds beyond the current project, ask.
+A lesson that holds only in the current project belongs to that project. In a CLAUDART project, how to work with the owner there goes to `.claudart/OWNER.md`, a correction or convention about work that a project rule owns, such as a code area, a workflow, or writing for customers, goes to that rule, and project facts go to knowledge. Elsewhere, ask the owner whether to record it in the project's own instructions. When it is unclear whether a lesson holds beyond the current project, ask.
 
 ## When To Record
 
