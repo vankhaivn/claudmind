@@ -1,5 +1,5 @@
 <!-- ~/.claudmind/OWNER.md — the owner's profile for every project and runtime, loaded every session.
-Keep under 60 lines. One line per entry: the guidance; its scope or exception when it has one; (YYYY-MM-DD).
+Keep under 60 lines and 7,000 characters. One line per entry, one or two sentences: the guidance; its scope or exception when it has one; (YYYY-MM-DD).
 Record only what the owner stated or confirmed. Never record secrets or account identifiers. -->
 
 ## Owner

@@ -40,9 +40,9 @@ Record only what the owner said or confirmed, or what you verified on this machi
 
 ## How To Record
 
-- Write one line per entry under the matching section: the guidance or fact, its scope or exception when it has one, and the date `(YYYY-MM-DD)`.
-- Replace the entry a new lesson refines. Keep one entry per lesson.
-- Keep `OWNER.md` under 60 lines and `MACHINE.md` under 40. Consolidate before adding when a file is full.
+- Write one line per entry under the matching section: the guidance or fact in one or two sentences, its scope or exception when it has one, and the date `(YYYY-MM-DD)`.
+- When a new lesson refines an entry, rewrite that entry to cover both and keep it short. A different lesson gets its own entry.
+- Keep `OWNER.md` under 60 lines and 7,000 characters, and `MACHINE.md` under 40 lines and 2,500 characters. Consolidate before adding when a file is full.
 - Never record secrets, tokens, passwords, account identifiers, or personal data about other people.
 - Mention every change in your reply, in one line.
 
