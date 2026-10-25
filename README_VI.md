@@ -26,7 +26,7 @@ bạn sửa agent
 | File                      | Chứa                                                                                            | Giới hạn             |
 | ------------------------- | ----------------------------------------------------------------------------------------------- | -------------------- |
 | `~/.claudmind/engine.md`  | Quy tắc agent dùng để đọc và cập nhật hồ sơ                                                     | —                    |
-| `~/.claudmind/OWNER.md`   | Bạn là ai, bạn quyết định thế nào, cách giao tiếp, các phê duyệt lâu dài, những lỗi cần tránh   | 60 dòng, 6.000 ký tự |
+| `~/.claudmind/OWNER.md`   | Bạn là ai, bạn quyết định thế nào, cách giao tiếp, các phê duyệt lâu dài, những lỗi cần tránh   | 60 dòng, 7.000 ký tự |
 | `~/.claudmind/MACHINE.md` | Hành vi của shell, phiên bản công cụ cần giữ cố định, cách bố trí credential (không có giá trị) | 40 dòng, 2.500 ký tự |
 
 Thứ tự ưu tiên, cao nhất trước:

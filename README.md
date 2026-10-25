@@ -26,7 +26,7 @@ you correct the agent
 | File                      | Holds                                                                                   | Size limit                 |
 | ------------------------- | --------------------------------------------------------------------------------------- | -------------------------- |
 | `~/.claudmind/engine.md`  | The rules agents follow to use and update your profile                                  | —                          |
-| `~/.claudmind/OWNER.md`   | Who you are, how you decide, how you communicate, standing approvals, mistakes to avoid | 60 lines, 6,000 characters |
+| `~/.claudmind/OWNER.md`   | Who you are, how you decide, how you communicate, standing approvals, mistakes to avoid | 60 lines, 7,000 characters |
 | `~/.claudmind/MACHINE.md` | Shell behavior, pinned tool versions, credential layout without values                  | 40 lines, 2,500 characters |
 
 Precedence, highest first:
