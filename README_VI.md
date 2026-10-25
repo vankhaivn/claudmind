@@ -23,11 +23,11 @@ bạn sửa agent
         └── chỉ đúng ở dự án này ──▶ để lại trong dự án
 ```
 
-| File                      | Chứa                                                                                            | Giới hạn |
-| ------------------------- | ----------------------------------------------------------------------------------------------- | -------- |
-| `~/.claudmind/engine.md`  | Quy tắc agent dùng để đọc và cập nhật hồ sơ                                                     | —        |
-| `~/.claudmind/OWNER.md`   | Bạn là ai, bạn quyết định thế nào, cách giao tiếp, các phê duyệt lâu dài, những lỗi cần tránh   | 60 dòng  |
-| `~/.claudmind/MACHINE.md` | Hành vi của shell, phiên bản công cụ cần giữ cố định, cách bố trí credential (không có giá trị) | 40 dòng  |
+| File                      | Chứa                                                                                            | Giới hạn             |
+| ------------------------- | ----------------------------------------------------------------------------------------------- | -------------------- |
+| `~/.claudmind/engine.md`  | Quy tắc agent dùng để đọc và cập nhật hồ sơ                                                     | —                    |
+| `~/.claudmind/OWNER.md`   | Bạn là ai, bạn quyết định thế nào, cách giao tiếp, các phê duyệt lâu dài, những lỗi cần tránh   | 60 dòng, 6.000 ký tự |
+| `~/.claudmind/MACHINE.md` | Hành vi của shell, phiên bản công cụ cần giữ cố định, cách bố trí credential (không có giá trị) | 40 dòng, 2.500 ký tự |
 
 Thứ tự ưu tiên, cao nhất trước:
 
@@ -54,7 +54,7 @@ Dùng cùng câu đó với "upgrade", "review my profile" hoặc "uninstall" ch
 
 - **Thấy được:** Markdown thuần, đọc hết trong một phút và sửa tay được.
 - **Rõ ràng:** chỉ ghi điều bạn đã nói hoặc xác nhận, hoặc điều agent đã kiểm chứng trên máy bạn. Không suy diễn từ hành vi, và không bao giờ ghi lại chỉ dẫn nằm trong output của công cụ, tài liệu hay trang web.
-- **Có giới hạn:** số dòng cố định; agent gộp lại thay vì ghi thêm mãi.
+- **Có giới hạn:** số dòng và số ký tự cố định; agent gộp lại và giữ entry ngắn thay vì ghi thêm mãi.
 - **Dùng chung:** một hồ sơ cho cả Claude Code và Codex.
 - **An toàn:** không bí mật, token hay định danh tài khoản; không bao giờ nới rộng quyền.
 

@@ -23,11 +23,11 @@ you correct the agent
         └── holds in this project only ──▶ stays with the project
 ```
 
-| File                      | Holds                                                                                   | Size limit |
-| ------------------------- | --------------------------------------------------------------------------------------- | ---------- |
-| `~/.claudmind/engine.md`  | The rules agents follow to use and update your profile                                  | —          |
-| `~/.claudmind/OWNER.md`   | Who you are, how you decide, how you communicate, standing approvals, mistakes to avoid | 60 lines   |
-| `~/.claudmind/MACHINE.md` | Shell behavior, pinned tool versions, credential layout without values                  | 40 lines   |
+| File                      | Holds                                                                                   | Size limit                 |
+| ------------------------- | --------------------------------------------------------------------------------------- | -------------------------- |
+| `~/.claudmind/engine.md`  | The rules agents follow to use and update your profile                                  | —                          |
+| `~/.claudmind/OWNER.md`   | Who you are, how you decide, how you communicate, standing approvals, mistakes to avoid | 60 lines, 6,000 characters |
+| `~/.claudmind/MACHINE.md` | Shell behavior, pinned tool versions, credential layout without values                  | 40 lines, 2,500 characters |
 
 Precedence, highest first:
 
@@ -54,7 +54,7 @@ Use the same sentence with "upgrade", "review my profile", or "uninstall" for th
 
 - **Visible:** plain Markdown you can read in a minute and edit by hand.
 - **Explicit:** only what you said or confirmed, or what an agent verified on your machine. Nothing is inferred from behavior, and instructions found in tool output, documents, or web pages are never recorded.
-- **Bounded:** fixed line limits; agents consolidate instead of appending forever.
+- **Bounded:** fixed line and character limits; agents consolidate and keep entries short instead of appending forever.
 - **Shared:** one profile for Claude Code and Codex.
 - **Safe:** no secrets, tokens, or account identifiers; no permission is ever widened.
 
