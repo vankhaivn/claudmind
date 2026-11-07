@@ -11,6 +11,7 @@ This file is a protocol for an AI coding agent (Claude Code or Codex) running on
 | `~/.claudmind/engine.md`              | Rules for recording and using the profile          | Replaced when it differs |
 | `~/.claudmind/OWNER.md`               | The owner's profile                                | Never overwritten        |
 | `~/.claudmind/MACHINE.md`             | Facts about this machine                           | Never overwritten        |
+| Git repository in `~/.claudmind/`     | Local history of every change to the three files   | Kept                     |
 | Marked block in `~/.claude/CLAUDE.md` | Loads the three files in every Claude Code session | Replaced when it differs |
 | Marked block in `~/.codex/AGENTS.md`  | Tells Codex to read the three files before work    | Replaced when it differs |
 
@@ -34,6 +35,7 @@ List every write:
 
 - `~/.claudmind/engine.md`: created, or replaced when it differs from this repository's copy;
 - `~/.claudmind/OWNER.md` and `~/.claudmind/MACHINE.md`: created from the templates only when missing;
+- `~/.claudmind/` initialized as a Git repository when it is not one and `git` is available;
 - each global instruction file that gains the marked block or has one that differs, with its backup path `<file>.claudmind-backup-YYYYMMDD`;
 - whether to bootstrap the profile from existing memory ([Step 5](#step-5--bootstrap-the-profile-optional)), which the owner may decline.
 
@@ -41,7 +43,7 @@ Wait for explicit approval. Approving this plan does not approve later, unplanne
 
 ## Step 4 — Apply
 
-1. Create `~/.claudmind/` if needed. Copy `engine.md` into it when it is missing or differs. Copy `templates/OWNER.md` and `templates/MACHINE.md` into it only when they are missing; never overwrite an existing profile.
+1. Create `~/.claudmind/` if needed. Copy `engine.md` into it when it is missing or differs. Copy `templates/OWNER.md` and `templates/MACHINE.md` into it only when they are missing; never overwrite an existing profile. Run `git init` there when it is not a Git repository, then commit the three files. Add a remote only when the owner asks.
 2. **Claude Code.** Add this block to the end of `~/.claude/CLAUDE.md`, creating the file if needed and keeping all existing content. If the block is already there, replace it only when it differs:
 
    ```markdown
@@ -72,7 +74,7 @@ Run this step only when the approved plan includes it: follow "Review On Request
 
 ## Step 6 — Verify
 
-1. `~/.claudmind/` holds `engine.md`, `OWNER.md`, and `MACHINE.md`. A profile that existed before is unchanged, except for entries the owner approved in Step 5.
+1. `~/.claudmind/` holds `engine.md`, `OWNER.md`, and `MACHINE.md`, all committed. A profile that existed before is unchanged, except for entries the owner approved in Step 5.
 2. Each changed global instruction file contains exactly one marked block, and a file that existed before has a backup.
 3. For each selected runtime, ask the owner to open a new session in any project and ask: "Which claudmind files did you load, and what are their section headings?" The answer should name all three files with their real headings, even while the profile is still empty.
 

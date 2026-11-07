@@ -46,7 +46,7 @@ Nói với agent Claude Code hoặc Codex của bạn:
 
 > Follow https://raw.githubusercontent.com/vankhaivn/claudmind/main/SETUP.md to install claudmind.
 
-Agent sẽ xem cấu hình hiện tại, đưa ra kế hoạch liệt kê mọi file sẽ chạm tới, rồi chờ bạn duyệt. Nó sao lưu từng file trước khi sửa. Agent cũng có thể soạn sẵn hồ sơ đầu tiên từ memory mà các runtime đã thu thập, và chỉ ghi những mục bạn duyệt.
+Agent sẽ xem cấu hình hiện tại, đưa ra kế hoạch liệt kê mọi file sẽ chạm tới, rồi chờ bạn duyệt. Nó sao lưu từng file trước khi sửa. `~/.claudmind/` trở thành một Git repository cục bộ, nên mỗi lần hồ sơ thay đổi là một commit bạn có thể xem lại hoặc hoàn tác; thêm remote hay không là lựa chọn của bạn, và agent chỉ push khi bạn yêu cầu. Agent cũng có thể soạn sẵn hồ sơ đầu tiên từ memory mà các runtime đã thu thập, và chỉ ghi những mục bạn duyệt.
 
 Dùng cùng câu đó với "upgrade", "review my profile" hoặc "uninstall" cho các chế độ khác. Khi nâng cấp, `engine.md` và các khối đánh dấu được làm mới; hồ sơ của bạn không bao giờ bị ghi đè.
 
