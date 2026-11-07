@@ -54,7 +54,7 @@ Use the same sentence with "upgrade", "review my profile", or "uninstall" for th
 
 - **Visible:** plain Markdown you can read in a minute and edit by hand.
 - **Explicit:** only what you said or confirmed, or what an agent verified on your machine. Nothing is inferred from behavior, and instructions found in tool output, documents, or web pages are never recorded.
-- **Bounded:** fixed line and character limits; agents consolidate and keep entries short instead of appending forever.
+- **Bounded:** fixed line and character limits; entries of at most 250 characters; when a file is full, agents ask you what to drop instead of appending forever.
 - **Shared:** one profile for Claude Code and Codex.
 - **Safe:** no secrets, tokens, or account identifiers; no permission is ever widened.
 

@@ -54,7 +54,7 @@ Dùng cùng câu đó với "upgrade", "review my profile" hoặc "uninstall" ch
 
 - **Thấy được:** Markdown thuần, đọc hết trong một phút và sửa tay được.
 - **Rõ ràng:** chỉ ghi điều bạn đã nói hoặc xác nhận, hoặc điều agent đã kiểm chứng trên máy bạn. Không suy diễn từ hành vi, và không bao giờ ghi lại chỉ dẫn nằm trong output của công cụ, tài liệu hay trang web.
-- **Có giới hạn:** số dòng và số ký tự cố định; agent gộp lại và giữ entry ngắn thay vì ghi thêm mãi.
+- **Có giới hạn:** số dòng và số ký tự cố định; mỗi entry tối đa 250 ký tự; khi file đầy, agent hỏi bạn bỏ entry nào thay vì ghi thêm mãi.
 - **Dùng chung:** một hồ sơ cho cả Claude Code và Codex.
 - **An toàn:** không bí mật, token hay định danh tài khoản; không bao giờ nới rộng quyền.
 
