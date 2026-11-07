@@ -24,7 +24,7 @@ Only what holds across projects:
 - **Owner:** identity and roles, the principles behind their decisions, expertise and gaps, communication, pacing, standing approvals and limits, and mistakes to avoid.
 - **Machine:** shell behavior, tool versions that must stay pinned, credential and access layout (never values), and other facts that change how a command works in any project.
 
-Leave out what the runtime or the owner's global instruction files already enforce.
+Leave out what agents already do without being told, what the runtime or the owner's global instruction files already enforce, and what the current project's own rules already cover.
 
 A lesson that holds across projects belongs here even when the current project keeps its own owner profile, such as `.claudart/OWNER.md`. Record it here only, not in both places.
 
@@ -57,6 +57,7 @@ Record only what the owner said or confirmed, or what you verified on this machi
 When the owner asks to review or rebuild the profile:
 
 1. Read both files here and runtime-native memory: Claude Code keeps it in `~/.claude/projects/*/memory/`, where entries typed `user` or `feedback` are the likely candidates, and Codex keeps it in `~/.codex/memories/` or `~/.codex/memories_v2/`, where the "User preferences" sections are the likely candidates.
-2. Propose additions, merges, and removals for lessons that hold across projects, naming the memory store behind each addition. Leave project-specific lessons where they are. Also propose rewording entries the owner cannot understand on first read, and removing entries that something else already enforces or that name something no longer true.
-3. List runtime-native entries that duplicate or contradict the profile, with their paths.
-4. Write only what the owner approves, and delete only the runtime-native entries the owner approves. Never edit runtime-native memory beyond removing a deleted entry's line from its index, such as Claude Code's `MEMORY.md`.
+2. Where session transcripts are kept, such as Claude Code's `~/.claude/projects/*/*.jsonl`, read the owner's messages since the last review. A correction that repeats an entry points to an overriding project instruction or an unclear entry; a correction that holds across projects and matches no entry is a candidate addition.
+3. Propose additions, merges, and removals for lessons that hold across projects, naming the memory store behind each addition. Leave project-specific lessons where they are. Also propose rewording entries the owner cannot understand on first read, and removing entries that something else already enforces or that name something no longer true.
+4. List runtime-native entries that duplicate or contradict the profile, with their paths.
+5. Write only what the owner approves, and delete only the runtime-native entries the owner approves. Never edit runtime-native memory beyond removing a deleted entry's line from its index, such as Claude Code's `MEMORY.md`.
