@@ -2,6 +2,14 @@
 
 claudmind is deliberately small: an AI-native setup protocol, one engine file, and two profile templates. Keep it that way. Prefer a shorter rule to new machinery, and add no command, skill, hook, service, background process, or permission change.
 
+## Design Principles
+
+- A change must be worth doing now for one real user, not merely correct. Cut before adding.
+- Runtime-native memory stays on; claudmind claims only lessons that hold across projects.
+- The dependency on CLAUDART is one-way: claudmind may name `.claudart/OWNER.md`, CLAUDART never mentions claudmind, and claudmind works without CLAUDART. The two READMEs introduce each other only once claudmind is stable, at the maintainer's call.
+- Out of scope: uninstall receipts, rollback procedures, timestamped backups, concurrency rules, revision pinning, broken-marker handling, large acceptance matrices, release notes, and checker scripts.
+- Deferred until before the first public release: custom runtime homes (`CLAUDE_CONFIG_DIR`, `CODEX_HOME`) and a non-empty Codex `AGENTS.override.md`, which hides the `AGENTS.md` block.
+
 ## Issues
 
 Search open issues and pull requests first. Open an issue before branching for a bug, a behavior change, or anything that needs a design decision; a typo or a tiny wording fix can skip it. A useful issue states the **Problem**, **Desired outcome**, **Acceptance criteria**, and **Non-goals**.
@@ -52,4 +60,3 @@ When a change touches `SETUP.md` or `engine.md`, also run the changed flow on yo
 - Write in English, and keep `README.md` and `README_VI.md` saying the same thing.
 - Describe the current contract directly. Keep history in issues, pull requests, and commits.
 - Change the version on the first line of `engine.md` only for a release.
-- claudmind may name CLAUDART's `.claudart/OWNER.md`, but it must keep working in projects without CLAUDART.
