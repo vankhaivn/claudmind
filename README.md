@@ -46,7 +46,7 @@ Tell your Claude Code or Codex agent:
 
 > Follow https://raw.githubusercontent.com/vankhaivn/claudmind/main/SETUP.md to install claudmind.
 
-The agent inspects your setup, shows a plan with every file it will touch, and waits for your approval. It backs up each file before changing it. It can also draft your first profile from the memory your runtimes have already collected, and it writes only the entries you approve.
+The agent inspects your setup, shows a plan with every file it will touch, and waits for your approval. It backs up each file before changing it. `~/.claudmind/` becomes a local Git repository, so every profile change is a commit you can inspect or revert; adding a remote is your choice, and agents push only when you ask. It can also draft your first profile from the memory your runtimes have already collected, and it writes only the entries you approve.
 
 Use the same sentence with "upgrade", "review my profile", or "uninstall" for the other modes. An upgrade refreshes `engine.md` and the marked blocks; your profile is never overwritten.
 

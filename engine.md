@@ -45,6 +45,7 @@ Record only what the owner said or confirmed, or what you verified on this machi
 - Keep `OWNER.md` under 60 lines and 7,000 characters, and `MACHINE.md` under 40 lines and 2,500 characters. Consolidate before adding when a file is full.
 - Never record secrets, tokens, passwords, account identifiers, or personal data about other people.
 - Mention every change in your reply, in one line.
+- When `~/.claudmind/` is a Git repository, commit each change there with a one-line message. Push only when the owner has added a remote and asked for pushes.
 
 ## Review On Request
 
